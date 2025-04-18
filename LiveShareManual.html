@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html lang="jp">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>VSCode 拡張機能で始めるWeb開発 - Live Share編</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <a href = "index.html" class="back">Home</a>
+    
+    <h1>VSCode 拡張機能で始めるWeb開発 - Live Share編</h1>
+    <h2>Live Shareの使用</h2>
+    <p>Live Shareは、VSCodeの拡張機能で、リアルタイムでコードを共有し、共同作業を行うことができます。</p>
+    
+    <section class="toc">
+        <h2>目次</h2>
+        <ul>
+            <li><a href="#install">1. Live Shareのインストール</a></li>
+            <li><a href="#host">2.使用方法ホスト側</a></li>
+            <li><a href="#guest">3.使用方法-ゲスト側</a></li>
+        </ul>
+    </section>
+    
+    
+    <h2>1.Live Shareのインストール</h2>
+    <ol>
+        <li>VSCodeを開きます。</li>
+        <li>左側の拡張機能アイコンをクリックします。</li>
+        <li>"Live Share"と検索し、インストールします。</li>
+        <div class ="screenshot-placeholder">
+            <img src="images/LiveShareInstall.png" alt="Live Share" class="image">
+        </div>
+    </ol>
+    <h2 id="host">2.使用方法-ホスト側</h2>
+    <ol>
+        <li>Live Shareを開始するには、左のLive Shareアイコンをクリックします。</li>
+        <img src="images/LSico.png" alt="拡張機能アイコンの画像" style="max-width: 10%;width: 5%; height: auto; margin: 10px 0;">
+        <li>ホストを開始するには、"Share(Read/Write)"をクリックします。</li>
+        <div class ="screenshot-placeholder">
+            <img src="images/hostStep1.png" alt="Live Share" class="image">
+        </div>
+        <li>invite participationを選択するとコピーされるリンクを参加者に共有</li>
+        <li>ここで live Serverという部分も確認しておきましょう。参加者に共有できているはずです。</li>
+        <div class ="screenshot-placeholder">
+            <img src="images/hostStep2.png" alt="Live Share" class="image">
+        </div>
+        <li>参加者が参加したらこんな表示が出てきます。Read-Whiteを許可しましょう</li>
+        <div class ="screenshot-placeholder">
+            <img src="images/hostStep3.png" alt="Live Share" class="image">
+        </div>
+        <li>ホスト側の操作はこれで終了です。</li>
+        <li>ホストを終了するには、Stop Collaboration Sessionボタンを押します。</li>
+        <div class ="screenshot-placeholder">
+            <img src="images/hostStep4.png" alt="Live Share" class="image">
+        </div>
+    </ol>
+
+    <h2 id="guest">3.使用方法-ゲスト側</h2>
+    <ol>
+        <li>ホストから送信されたリンクをクリックします。</li>
+        <li>VSCodeを開き、joinしましょう</li>
+        <a>※人によって挙動が違う可能性があります。</a>
+        <div class ="screenshot-placeholder">
+            <img src="images/guestStep1.png" alt="Live Share" class="image">
+        </div>
+        <li>ホストの承認を待ちます...</li>
+        <li>承認されるとホストのコードが表示され、リアルタイムで編集できます。</li>
+        <a>※ホストの挙動を追ってしまっている場合は下記のどちらかで対処しましょう。</a>
+        <ul>
+            <li>上部青い表示→管理→信頼</li>
+            <li>左の live Shareのアイコンをクリックしてホストの名前を右クリック→ Unfollowを選択</li>
+        </ul>
+        <div class ="screenshot-placeholder">
+            <img src="images/guestStep2.png" alt="Live Share" class="image">
+        </div>
+        <li>ゲスト側が live-serverのプレビューを参照したい場合は、ホストがserverを利用していることを確認して、Shared ServerからLive Serverにアクセスします。</li>
+        <div class ="screenshot-placeholder">
+            <img src="images/guestStep3.png" alt="Live Share" class="image">
+        </div>
+        <li>ゲスト側もこれにて操作は終了です</li>
+    </ol>
+
+    <p>これで、リアルタイムでコードを共有しながら共同作業ができます。</p>
+
+    <h2>まとめ</h2>
+    <p>Live Shareを使用することで、リアルタイムでコードを共有し、共同作業を行うことができます。これにより、リモートでのコラボレーションが容易になります。
+    このマニュアルを参考にして、Live Shareを活用してみてください。
+    ※この使用方法は一例です。自身が使いやすいような共有方法を調べながら試してみましょう。</p>
+    
+    <footer>
+        <p>
+            <a href="#top">トップに戻る</a> | 
+            <a href="LiveServerManual.html" >Live Server Manuel</a> | 
+            <a href="LiveShareManual.html" >Live Share Manuel</a>
+        </p>
+    </footer>
+</body>
+</html>

@@ -1,0 +1,372 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>VSCode 拡張機能で始めるWeb開発 - Live Server</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+    <a href = "index.html" class="back">Home</a>
+    
+    <h1>VSCode 拡張機能で始めるWeb開発 - Live Server編</h1>
+
+    <section>
+        <h2>はじめに</h2>
+        <p>Visual Studio Code（VSCode）のLive Server機能は、Web開発の効率を大幅に向上させるツールです。このマニュアルでは、Web開発を始めたばかりの方向けに、Live Serverの基本的な使い方から応用までを解説します。</p>
+        
+        <p>Live Serverは、ローカル環境でWebページをリアルタイムにプレビューできる拡張機能です。HTMLやCSS、JavaScriptファイルを保存するたびに、ブラウザが自動的に更新されるため、手動でリロードする手間が省けます。</p>
+        
+        <div class="discription">
+        <p><strong>Live Serverを使うメリット：</strong></p>
+        <ul>
+            <li>ブラウザを手動でリロードする必要がなく、作業効率が向上します。</li>
+            <li>複数のデバイス（スマホやタブレット）で同時に動作確認ができます。</li>
+            <li>簡単な設定でローカルサーバーを立ち上げられるため、初心者でもすぐに使い始められます。</li>
+        </ul>
+        </div>
+        
+        <p>Live Serverは、ローカルサーバーを立ち上げて、ブラウザとVSCodeの間で通信を行います。ファイルが保存されると、Live Serverがその変更を検知し、ブラウザに通知して自動的にページを更新します。</p>
+        
+    </section>
+
+    <section class="toc">
+        <h2>目次</h2>
+        <ul>
+            <li><a href="#install">1. Live Serverのインストール</a></li>
+            <li><a href="#preview">2. Live Serverを使ったプレビューの表示</a></li>
+            <li><a href="#browser">3. ブラウザの変更方法</a></li>
+            <li><a href="#troubleshooting">4. トラブルシューティング</a></li>
+            <li><a href="#additional">5. +α 自身のスマホやタブレットでも確認してみたい時は？</a></li>
+        </ul>
+    </section>
+
+    <section id="install">
+        <h2>1. Live Serverのインストール</h2>
+        <p>Live Serverは標準でVSCodeに搭載されていないため、拡張機能としてインストールする必要があります。</p>
+        
+        <div class="steps">
+            <ol>
+                <li>VSCodeを起動します</li>
+                <li>左側のサイドバーから拡張機能アイコンをクリックします</li>
+                <img src="images/addIcon.png" alt="拡張機能アイコンの画像" style="max-width: 10%;width: 5%; height: auto; margin: 10px 0;">
+                <li>検索バーに「Live Server」と入力します</li>
+                <li>「Live Server」を見つけて「インストール」ボタンをクリックします</li>
+                <a>※画像ではアンイストールとなっている部分をクリックします。</a>
+            </ol>
+        </div>
+        
+        <div class="screenshot-placeholder">
+            <img src="images/installliveserver.png" alt="Live Serverインストール画面" />
+        </div>
+    </section>
+
+    <section id="preview">
+        <h2>2. Live Serverを使ったプレビューの表示</h2>
+        <p>Live Serverを使えば、HTMLファイルの変更を保存するたびに自動的にブラウザが更新され、変更内容がすぐに確認できます。</p>
+        
+        <h3>基本的な起動方法</h3>
+        <div class="steps">
+            <ol>
+                <li>VSCodeでWebプロジェクトを開きます</li>
+                <li>HTMLファイル（例：index.html）を選択します</li>
+                <li>エディタ右下の「Go Live」ボタンをクリック
+                    <!-- <ul>
+                        <li>次のいずれかの方法でLive Serverを起動します：</li>
+                        <li>HTMLファイルを右クリックして「Open with Live Server」を選択</li>
+                        <li>ステータスバーの「Go Live」をクリック</li>
+                        <li>ショートカットキー：Alt+L Alt+O（カスタマイズ可能）</li>
+                    </ul> -->
+                </li>
+            </ol>
+        </div>
+        
+        <div class="screenshot-placeholder">
+            <img src="images/useliveserver.png" alt="Live Server起動ボタン" />
+        </div>
+        
+        <h3>Live Serverの停止方法</h3>
+        <ul>
+            <li>起動の時に押した部分：エディタ右下の「Port: 5500」のような表示をクリックします</li>
+        </ul>
+    
+        
+        <h3>プレビューの確認</h3>
+        <p>Live Serverを起動すると、自動的にデフォルトブラウザでプロジェクトが表示されます。基本的なURLは以下のようになります：</p>
+        
+        <pre><code>http://127.0.0.1:5500/index.html</code></pre>
+        
+        <p>または</p>
+        
+        <pre><code>http://localhost:5500/index.html</code></pre>
+    </section>
+
+    <section id="browser">
+        <h2>3. ブラウザの変更方法</h2>
+        <p>Live Serverは標準で、システムのデフォルトブラウザを使用します。別のブラウザでプレビューを確認したい場合は、設定を変更します。</p>
+        
+        <h3>ブラウザ設定の変更手順</h3>
+        <div class="steps">
+            <ol>
+                <li>VSCodeの左下の歯車アイコン（設定）をクリックし、「設定」を選択します</li>
+                <li>検索バーに「live server browser」と入力します</li>
+                <li>「Live Server > Settings: Custom Browser」で以下のいずれかを選択します：
+                    <ul>
+                        <li>chrome</li>
+                        <li>firefox</li>
+                        <li>microsoft-edge</li>
+                        <li>safari</li>
+                    </ul>
+                </li>
+            </ol>
+        </div>
+        
+        <div class="screenshot-placeholder">
+            <img src="images/chnagebrowser.png" alt="Live Serverブラウザ設定" />
+        </div>
+        
+        <!-- <h3>カスタムブラウザのパスを指定する場合</h3>
+        <div class="steps">
+            <ol>
+                <li>VSCodeの設定を開きます</li>
+                <li>「Live Server > Settings: Custom Browser: Path」を探します</li>
+                <li>ブラウザ実行ファイルのパスを指定します（例: C:\Program Files\Google\Chrome\Application\chrome.exe）</li>
+            </ol>
+        </div> -->
+    </section>
+
+    <!-- <section id="collaboration">
+        <h2>4. 共同編集の方法</h2>
+        <p>Live Serverはローカル環境でWebサイトをプレビューするツールであり、直接的な共同編集機能はありません。しかし、以下の方法で複数人での作業が可能です。</p>
+        
+        <h3>Gitを使った共同編集</h3>
+        <p>最も一般的な方法はGitなどのバージョン管理システムを使うことです。</p>
+        
+        <div class="steps">
+            <ol>
+                <li>GitHubなどのプラットフォームにプロジェクトリポジトリを作成します</li>
+                <li>チームメンバーはリポジトリをクローンして作業します</li>
+                <li>各自がLive Serverを使って自分のローカル環境で変更を確認します</li>
+                <li>変更をコミットしてプッシュします</li>
+            </ol>
+        </div>
+        
+        <h3>VS Code Live Shareを使った共同編集</h3>
+        <p>より直接的な共同編集には、VS Code Live Share拡張機能を使用できます。</p>
+        
+        <div class="steps">
+            <ol>
+                <li>VS Code Live Share拡張機能をインストールします</li>
+                <li>左側のアクティビティバーから「Live Share」アイコンをクリックします</li>
+                <li>「Start collaboration session」をクリックします</li>
+                <li>生成された招待リンクをチームメンバーに送ります</li>
+                <li>各自がLive Serverを使ってプレビューを確認します</li>
+            </ol>
+        </div>
+        
+        <div class="screenshot-placeholder">
+            ここにVS Code Live Share拡張機能のスクリーンショットを挿入
+        </div>
+    </section> -->
+
+    <!-- <section id="testing">
+        <h2>5. ローカル環境でのテストと注意点</h2>
+        
+        <h3>ローカルでのテスト方法</h3>
+        <div class="steps">
+            <ol>
+                <li>プロジェクトフォルダをVSCodeで開きます</li>
+                <li>Live Serverを起動します</li>
+                <li>異なるデバイスからのアクセス手順：
+                    <ul>
+                        <li>同じネットワーク上にあるデバイスから、PCのIPアドレスとLive Serverのポートを使用してアクセスします</li>
+                        <li>例：<code>http://192.168.1.5:5500</code>（IPアドレスは<code>ipconfig</code>コマンドで確認できます）</li>
+                    </ul>
+                </li>
+            </ol>
+        </div>
+        
+        <h3>重要な注意点</h3>
+        <div class="warning">
+            <ol>
+                <li><strong>ローカルネットワーク限定</strong>: Live Serverはローカルネットワーク内でのみアクセス可能です。インターネット経由で外部からアクセスすることはできません。</li>
+                <li><strong>POSTリクエスト制限</strong>: Live Serverは基本的にHTMLの表示に最適化されており、複雑なバックエンド処理やPOSTリクエストの処理には向いていません。</li>
+                <li><strong>セキュリティ上の注意</strong>: ローカルネットワーク上で公開するため、機密情報を含むプロジェクトを扱う場合は注意が必要です。</li>
+                <li><strong>実際の環境との違い</strong>: 本番環境とローカル環境では挙動が異なる場合があります。最終的には実際のWebサーバーでテストすることをお勧めします。</li>
+                <li><strong>モバイルデバイスでのテスト</strong>: 同じWi-Fi上にあるスマートフォンやタブレットからもアクセス可能です。PCのIPアドレスとポート番号を使用してアクセスしてください。</li>
+            </ol>
+        </div>
+    </section> -->
+
+    <!-- <section id="additional">
+        <h2>6. 初心者が知っておくと便利な追加機能</h2>
+        
+        <h3>ホットリロードの活用</h3>
+        <p>Live Serverの最大の特徴は「ホットリロード」機能です。CSSやJavaScriptファイルを編集して保存すると、ブラウザを手動でリロードしなくても自動的に変更が反映されます。</p>
+        
+        <h3>ルートディレクトリの設定</h3>
+        <p>Webプロジェクトでは、ルートディレクトリを設定することで、Live Serverがどのフォルダを基準にしてファイルを提供するかを指定できます。</p>
+        
+        <h4>ルートディレクトリとは？</h4>
+        <p>ルートディレクトリとは、プロジェクト内でWebサーバーが最初に参照するフォルダのことです。通常、<code>index.html</code>や<code>style.css</code>などのファイルが配置されるフォルダを指します。</p>
+        
+        <h4>なぜルートディレクトリを設定する必要があるのか？</h4>
+        <ul>
+            <li>プロジェクトの整理：複数のフォルダがある場合でも、特定のフォルダを基準にすることで管理が簡単になります。</li>
+            <li>URLの簡潔化：ルートディレクトリを設定することで、<code>http://localhost:5500/public/index.html</code>のようなURLを<code>http://localhost:5500/index.html</code>に短縮できます。</li>
+            <li>セキュリティ：不要なフォルダやファイルが公開されるのを防ぐことができます。</li>
+        </ul>
+        
+        <h4>設定手順</h4>
+        <div class="steps">
+            <ol>
+                <li>VSCodeの左下の歯車アイコン（設定）をクリックし、「設定」を選択します。</li>
+                <li>検索バーに「Live Server Root」と入力します。</li>
+                <li>「Live Server > Settings: Root」をクリックし、プロジェクトのルートディレクトリを指定します（例：<code>/public</code>）。</li>
+            </ol>
+        </div>
+        
+        <h4>設定後の動作例</h4>
+        <p>例えば、以下のようなフォルダ構成の場合：</p>
+        <pre><code>
+        project/
+        ├── public/
+        │   ├── index.html
+        │   ├── style.css
+        │   └── script.js
+        ├── assets/
+        │   └── images/
+        └── README.md
+        </code></pre>
+        <p>ルートディレクトリを<code>/public</code>に設定すると、Live Serverは<code>public</code>フォルダ内のファイルを基準に提供します。</p>
+        <p>ブラウザでのURLは以下のようになります：</p>
+        <pre><code>http://localhost:5500/index.html</code></pre>
+        <p>これにより、<code>public</code>フォルダを明示的に指定する必要がなくなります。</p>
+         -->
+        <!-- <h3>HTTPS対応</h3>
+        <p>セキュアな環境が必要な場合は、HTTPS設定を有効にできます。</p>
+        
+        <div class="steps">
+            <ol>
+                <li>VSCodeの設定を開きます</li>
+                <li>「Live Server > Settings: Use Https」をオンにします</li>
+                <li>必要に応じて証明書の設定を行います</li>
+            </ol>
+        </div>
+         -->
+        <!-- <h3>複数プロジェクトの同時実行</h3>
+        <p>異なるポートで複数のLive Serverを実行したい場合：</p>
+        
+        <div class="steps">
+            <ol>
+                <li>VSCodeの設定を開きます</li>
+                <li>「Live Server > Settings: Port」を変更します（デフォルトは5500）</li>
+            </ol>
+        </div> -->
+    </section>
+
+    <section id="troubleshooting">
+        <h2>4. トラブルシューティング</h2>
+        
+        <h3>よくある問題と解決策</h3>
+        
+        <div class="warning">
+            <ol>
+                <li>
+                    <strong>Live Serverが起動しない</strong>
+                    <ul>
+                        <li>VSCodeを再起動する</li>
+                        <li>ポート5500が他のアプリケーションで使用されていないか確認する</li>
+                        <li>設定で別のポートを指定する</li>
+                    </ul>
+                </li>
+                <li>
+                    <strong>変更が反映されない</strong>
+                    <ul>
+                        <li>ファイルを保存していることを確認する（Ctrl+S）</li>
+                        <li>ブラウザのキャッシュをクリアする</li>
+                        <li>Live Serverを再起動する</li>
+                    </ul>
+                </li>
+                <li>
+                    <strong>CSSやJavaScriptの変更が反映されない</strong>
+                    <ul>
+                        <li>リンク先のパスが正しいか確認する</li>
+                        <li>ブラウザの開発者ツールでエラーを確認する</li>
+                        <li>ブラウザのキャッシュを無効にする</li>
+                    </ul>
+                </li>
+                <li>
+                    <strong>特定のブラウザでのみ問題が発生する</strong>
+                    <ul>
+                        <li>複数のブラウザでテストして問題を切り分ける</li>
+                        <li>ブラウザの互換性を確認する</li>
+                    </ul>
+                </li>
+            </ol>
+        </div>
+        
+        <h3>サポート情報の確認方法</h3>
+        <p>問題が解決しない場合は、Live Server拡張機能の公式ドキュメントやGitHubリポジトリを参照してください：</p>
+        
+        <ul>
+            <li><a href="https://github.com/ritwickdey/vscode-live-server" target="_blank">Live Server GitHub</a></li>
+            <li><a href="https://marketplace.visualstudio.com/items?itemName=ritwickdey.LiveServer" target="_blank">VS Code Marketplace</a></li>
+        </ul>
+    </section>
+
+    <section id="additional">
+        <h2>5. +α 自身のスマホやタブレットでも確認してみたい時は？</h2>
+        <p>自身のスマホでページをみたい時は、こんな方法を試してみましょう。</p>
+        
+        <h3>a.Chromeの検証機能を使う</h3>
+        <p>Chromeの検証機能を使うことで、スマホやタブレットでの表示を確認できます。</p>
+        <div class="steps">
+            <ol>
+                <li>Chromeブラウザを開きます</li>
+                <li>F12キーを押して開発者ツールを表示します</li>
+                <li>左上のデバイスアイコンをクリックして、スマホやタブレットの表示に切り替えます</li>
+            </ol>
+        </div>
+
+        <h3>b.LiveServerの機能を使う</h3>
+        <p>Live Serverの機能を使うことで、自身の実機での表示を確認できます。</p>
+        <div class="steps">
+            <ol>
+                <li>PCと接続したいデバイスを同じWi-fiに繋ぎます。</li>
+                <li>VSCodeの設定を開きます</li>
+                <li>検索バーに「live server settings:Use Local Ip」と入力し,チェックを入れます。</li>
+                <li>Live Serverを起動します</li>
+                <li>開いたプレビュー画面の検索バーのリンクを何らかの方法で表示したい端末に送ります。</li>
+                <ul>
+                    <li>QRcodeを読み取る</li>
+                    <li>Discodeに送る</li>
+                    <li>Air Drop</li>
+                </ul>
+            </ol>
+        </div>
+        <div class="note">
+            <p><strong>注意：</strong></p>
+            <ul>
+                <li>同じWi-Fiネットワークに接続されていない場合、デバイスからアクセスできません。</li>
+                <li>一部のネットワーク環境（企業や学校のWi-Fiなど）では、デバイス間の通信が制限されている場合があります。</li>
+                <li>セキュリティ上の理由から、公開するプロジェクトには機密情報を含めないようにしてください。</li>
+            </ul>
+        </div>
+    </section>
+
+    <section>
+        <h2>まとめ</h2>
+        <p>Live Serverは、Web開発初心者にとって非常に便利なツールです。リアルタイムでの変更確認、複数デバイスでのテスト、簡単な設定などの特長を活かして、効率的な開発環境を構築しましょう。実際のプロジェクトでは、このマニュアルで紹介した機能を組み合わせて活用することで、より快適なWeb開発体験が得られます。</p>
+    </section>
+
+    <footer>
+        <p>
+            <a href="#top">トップに戻る</a> | 
+            <a href="LiveServerManual.html">Live Server Manuel</a> | 
+            <a href="LiveShareManual.html">Live Share Manuel</a>
+        </p>
+    </footer>
+</body>
+</html>
